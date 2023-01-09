@@ -10,6 +10,7 @@ const Home = () => {
   const callGenerateEndpoint = async (event) => {
     event.preventDefault();
     setIsGenerating(true);
+    setApiOutput('')
 
     const response = await fetch('/api/generate', {
       method: 'POST',
@@ -39,28 +40,28 @@ const Home = () => {
       <header>
         <nav>
           <div className="m-5">
-              <a href="/" className="text-white text-2xl font-bold">CronExpression.com</a>
+              <a href="/" className="text-white text-l sm:text-2xl font-bold">CronExpression.com</a>
           </div>
         </nav>
       </header>
       <main className="container mx-auto px-4">
         {/* Main Header & Sub Header  */}
-        <div className="flex flex-col mt-12 md:mt-32">
+        <div className="flex flex-col mt-12 sm:mt-20 xl:mt-26">
           <div className="text-center">
-            <div className="text-5xl md:text-6xl font-extrabold text-white">
+            <div className="text-4xl  lg:text-5xl xl:text-6xl font-extrabold text-white">
               <h1>Cron Expressions Simplified</h1>
             </div>
-            <div className="text-xl md:text-2xl text-slate-400 text-center mt-5">
-              <h2>Effortlessly Create Cron Expressions with Natural Language and AI.</h2>
+            <div className="text-xl  lg:text-2xl xl:text-3xl text-slate-400 text-center mt-5">
+              <h2>Effortlessly Create Cron Expressions<br className="invisible"/> with Natural Language and AI</h2>
             </div>
           </div>
         </div>
         {/* Input & Output  */}
-        <div className="mt-12 md:mt-20 flex flex-col items-center">
-          <div className="rounded-lg bg-slate-700 w-full sm:w-[600px] border border-slate-600 ">
+        <div className="mt-12  md:mt-18 flex flex-col items-center">
+          <div className="rounded-lg bg-slate-700 w-full sm:w-[600px] border border-slate-600">
             <form>
               <div className="flex items-center px-3 py-2">
-                  <input type="text" value={userInput} onChange={onUserChangedText} className="block mx-4 p-2.5 w-full text-sm sm:text-base rounded-lg bg-slate-800 placeholder-slate-400 text-white" placeholder="Run every hour between 1pm to 4pm everyday of the week..."></input>
+                  <input type="text" value={userInput} onChange={onUserChangedText} className="block mr-3  p-2.5 w-full text-sm sm:text-base rounded-lg bg-slate-800 placeholder-slate-400 text-white" placeholder="Run every hour between 1pm to 4pm everyday of the week..."></input>
                       <button type="submit" onClick={callGenerateEndpoint} className="inline-flex justify-center p-2  rounded-full cursor-pointer  bg-blue-600 hover:bg-blue-700">
                       {isGenerating ? 
                         <svg className="animate-spin h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
@@ -86,13 +87,13 @@ const Home = () => {
         {/* Results Box */}
         {(apiOutput || isGenerating) && (
           <div className="flex justify-center">
-            <div className="mt-8 border border-slate-600 bg-slate-700 rounded-lg w-full sm:w-[600px]">
+            <div className="mt-12 border border-slate-600 bg-slate-700 rounded-lg w-full sm:w-[600px]">
                 <div className="p-2 mb-1 text-sm font-semibold text-white">
                   <h3>Result</h3>
                 </div>
-              <div className={"px-4 py-2 rounded-b-lg bg-slate-800 " + (isGenerating ? "animate-pulse" : "")}>
-                <div className="text-center h-8 sm:h-16 flex items-center justify-center">
-                  <span className="text-white sm:text-2xl">{apiOutput}</span>
+              <div className={"px-4 py-2 rounded-b-lg bg-slate-800" + (isGenerating ? "animate-pulse" : "")}>
+                <div id="results" className="text-center m-h-8 sm:m-h-16 flex items-center justify-center">
+                    <span className="text-white md:text-xl">{apiOutput}</span>
                 </div>
               </div>
             </div>
