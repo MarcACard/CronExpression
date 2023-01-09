@@ -9,8 +9,8 @@ const configuration = new Configuration({
 
 const openai = new OpenAIApi(configuration);
 
-// TODO: Build handler to determine if user input is requesting a cron schedule or asking for an explanation.
-const basePromptPrefix = "Using the description below create a Crontab schedule, only provide the schedule and exclude command to run a specific program. If no time frequency information is provide prompt the user for more information saying: 'Insufficient information provided. Please add more details and try again'.\n\nDescription:";
+// TODO: Build handler to determine if user input is requesting a cron expressoin or asking for an explanation.
+const basePromptPrefix = "Using the description below create a Crontab Expression, only provide the expression and exclude command to run a specific program. If no time frequency information is provide prompt the user for more information saying: 'Insufficient information provided. Please add more details and try again'.\n\nDescription:";
 const generateAction = async (req, res) => {
     // Return 400 if request body is empty
     if (!req.body) {
@@ -21,7 +21,7 @@ const generateAction = async (req, res) => {
     logger.info('API: Calling OpenAI API')
     const baseCompletion = await openai.createCompletion({
         model: "text-davinci-003",
-        prompt: `${basePromptPrefix}${req.body.userInput}\nCrontab Schedule:\n`,
+        prompt: `${basePromptPrefix}${req.body.userInput}\nCrontab Expression:\n`,
         temperature: 0.7,
         max_tokens: 250,
     })
