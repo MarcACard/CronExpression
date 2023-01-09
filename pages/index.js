@@ -33,13 +33,13 @@ const Home = () => {
   return (
     <div className="">
       <Head>
-        <title>CronSchedule.xyz</title>
+        <title>CronExpression.com | AI-Powered Cron Expression Generator</title>
       </Head>
       {/* TODO: Breakout into components */}
       <header>
         <nav>
           <div className="m-5">
-              <a href="/" className="text-white text-2xl font-bold">CronSchedule.xyz</a>
+              <a href="/" className="text-white text-2xl font-bold">CronExpression.com</a>
           </div>
         </nav>
       </header>
@@ -48,10 +48,10 @@ const Home = () => {
         <div className="flex flex-col mt-12 md:mt-32">
           <div className="text-center">
             <div className="text-5xl md:text-6xl font-extrabold text-white">
-              <h1>Cron Schedules Simplified</h1>
+              <h1>Cron Expressions Simplified</h1>
             </div>
             <div className="text-xl md:text-2xl text-slate-400 text-center mt-5">
-              <h2>Effortlessly Create Cron Schedules in Plain English.</h2>
+              <h2>Effortlessly Create Cron Expressions with Natural Language and AI.</h2>
             </div>
           </div>
         </div>
