@@ -10,6 +10,7 @@ const Home = () => {
   const callGenerateEndpoint = async (event) => {
     event.preventDefault();
     setIsGenerating(true);
+    setApiOutput('')
 
     const response = await fetch('/api/generate', {
       method: 'POST',
