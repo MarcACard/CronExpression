@@ -14,7 +14,7 @@ function App({ Component, pageProps }) {
           function gtag(){window.dataLayer.push(arguments);}
           gtag('js', new Date());
 
-          gtag('config', 'G-FX2H1HXZ7X', cookie_flags: 'SameSite=None;Secure');
+          gtag('config', 'G-FX2H1HXZ7X', {cookie_flags: 'SameSite=None;Secure'});
         `}
       </Script>
       <Component {...pageProps} />
