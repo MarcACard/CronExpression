@@ -1,4 +1,4 @@
-# CronExpression.com
+# CronExpression.com | Cron Expression Generator
 
 [CronExpression.com](https://cronexpression.com) is a tool that helps users generate cron expressions based on natural language inputs. It uses OpenAI's GTP3 text-davinci-003 language model to understand the user's input and convert it into a valid cron expression.
 
@@ -21,3 +21,4 @@ This project was created with...
 - Next.js - Web Framework
 - TailwindCSS - CSS framework
 - OpenAI - Used for natural language processing
+
