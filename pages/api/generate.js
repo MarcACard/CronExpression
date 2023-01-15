@@ -18,6 +18,7 @@ const generateAction = async (req, res) => {
         res.status(400).json({output: "Insufficient information provided. Please add more details and try again"});
     }
     // Call OpenAI API
+    logger.info(`API: Query Submitted - ${req.body.userInput}`)
     logger.info('API: Calling OpenAI API')
     const baseCompletion = await openai.createCompletion({
         model: "text-davinci-003",
@@ -25,10 +26,10 @@ const generateAction = async (req, res) => {
         temperature: 0.7,
         max_tokens: 250,
     })
-    logger.info('API: OpenAI API call complete')
+    logger.info('API: OpenAI API Call Complete')
     const basePromptOutput = baseCompletion.data.choices.pop();
     
-    logger.info('API: Returning response to client')
+    logger.info(`API: Returning Response to Client - "${basePromptOutput.text}"`)
     res.status(200).json({output: basePromptOutput});
 }
 
