@@ -91,16 +91,15 @@ const Home = () => {
                 <div className="p-2 mb-1 text-sm font-semibold text-white">
                   <h3>Result</h3>
                 </div>
-              <div className={"px-4 py-2 rounded-b-lg bg-slate-800" + (isGenerating ? "animate-pulse" : "")}>
-                <div id="results" className="text-center m-h-8 sm:m-h-16 flex items-center justify-center">
-                    <span className="text-white md:text-xl">{apiOutput}</span>
+              <div className={"px-4 py-2 rounded-b-lg bg-slate-800" + (isGenerating ? " animate-pulse" : "")}> 
+                <div id="results" className="text-center min-h-[2em] md:min-h-[3em] flex items-center justify-center">
+                    <span className="text-white text-lg md:text-2xl">{apiOutput}</span>
                 </div>
               </div>
             </div>
           </div>
         )}
       </main>
-
       <footer className="w-full fixed bottom-0 border-t-3 border-slate-100">
         <div className="text-slate-400 text-center p-4 hover:text-white">
           <a href="https://twitter.com/Marcard" target="_blank">
