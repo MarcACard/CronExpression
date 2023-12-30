@@ -24,7 +24,7 @@ const Home = () => {
     const data = await response.json();
     const { output } = data;
 
-    setApiOutput(`${output.text}`);
+    setApiOutput(`${output}`);
     setIsGenerating(false);
   };
 
