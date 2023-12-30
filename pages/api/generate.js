@@ -26,7 +26,7 @@ const generateAction = async (req, res) => {
   logger.info(`API: Query Submitted - ${req.body.userInput}`);
   logger.info("API: Calling OpenAI API");
   const baseCompletion = await openai.createCompletion({
-    model: "text-davinci-003",
+    model: "gpt-3.5-turbo-instruct",
     prompt: `${basePromptPrefix}${req.body.userInput}\nCrontab Expression:\n`,
     temperature: 0.7,
     max_tokens: 250,
