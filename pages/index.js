@@ -1,33 +1,33 @@
-import Head from 'next/head';
-import { useState } from 'react';
+import Head from "next/head";
+import { useState } from "react";
 
-import { InputForm } from '../components/input-form';
-import { Layout } from '../components/layout';
-import { Results } from '../components/results';
+import { InputForm } from "../components/input-form";
+import { Layout } from "../components/layout";
+import { Results } from "../components/results";
 
 const Home = () => {
-  const [apiOutput, setApiOutput] = useState('');
+  const [apiOutput, setApiOutput] = useState("");
   const [isGenerating, setIsGenerating] = useState(false);
 
   const callGenerateEndpoint = async (userInput) => {
     setIsGenerating(true);
-    setApiOutput('')
+    setApiOutput("");
 
-    const response = await fetch('/api/generate', {
-      method: 'POST',
+    const response = await fetch("/api/generate", {
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({ userInput }),
     });
 
     const data = await response.json();
+    console.log(data);
     const { output } = data;
 
-    setApiOutput(`${output.text}`);
+    setApiOutput(`${output}`);
     setIsGenerating(false);
   };
-
 
   return (
     <Layout>
@@ -42,11 +42,17 @@ const Home = () => {
               <h1>Cron Expressions Simplified</h1>
             </div>
             <div className="text-xl  lg:text-2xl xl:text-3xl text-slate-400 text-center mt-5">
-              <h2>Effortlessly Create Cron Expressions<br className="invisible" /> with Natural Language and AI</h2>
+              <h2>
+                Effortlessly Create Cron Expressions
+                <br className="invisible" /> with Natural Language and AI
+              </h2>
             </div>
           </div>
         </div>
-        <InputForm isGenerating={isGenerating} callGenerateEndpoint={callGenerateEndpoint} />
+        <InputForm
+          isGenerating={isGenerating}
+          callGenerateEndpoint={callGenerateEndpoint}
+        />
         <Results apiOutput={apiOutput} isGenerating={isGenerating} />
       </div>
     </Layout>
