@@ -32,7 +32,7 @@ const Home = () => {
   return (
     <Layout>
       <Head>
-        <title>CronExpression.com | AI-Powered Cron Expression Generator</title>
+        <title>CronExpression.com | Cron Expression Generator</title>
       </Head>
       <div className="container mx-auto px-4">
         {/* Main Header & Sub Header  */}
@@ -41,11 +41,8 @@ const Home = () => {
             <div className="text-4xl  lg:text-5xl xl:text-6xl font-extrabold text-white">
               <h1>Cron Expressions Simplified</h1>
             </div>
-            <div className="text-xl  lg:text-2xl xl:text-3xl text-slate-400 text-center mt-5">
-              <h2>
-                Effortlessly Create Cron Expressions
-                <br className="invisible" /> with Natural Language and AI
-              </h2>
+            <div className="text-xl lg:text-2xl xl:text-3xl text-slate-400 text-center mt-5">
+              <h2>Effortlessly Create Cron Expressions</h2>
             </div>
           </div>
         </div>

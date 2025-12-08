@@ -37,6 +37,14 @@ const generateAction = async (req, res) => {
       model: openai("gpt-5-nano-2025-08-07", {
         apiKey: process.env.OPENAI_API_KEY,
       }),
+      providerOptions: {
+        openai: {
+          effort: "none",
+          verbosity: "low",
+          store: false,
+          summary: false,
+        },
+      },
       schema: z.object({
         croneExpression: z.string(),
       }),
